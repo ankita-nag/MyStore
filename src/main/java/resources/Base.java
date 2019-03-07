@@ -15,7 +15,7 @@ import interfaces.WebElementMethods;
 import webPages.HomePage;
 
 public class Base {
-	private static WebDriver driver;
+	protected static WebDriver driver;
 	public HomePage homepageobj;
 	public WebElementMethods webelementobj;
 	public DriverMethods driverobj;

@@ -19,9 +19,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import resources.Base;
 
- 
 public class HomePageTest extends Base {
-	
+
 	@Given("^user navigates to new look website$")
 	public void user_navigates_to_new_look_website() {
 		super.initializeDriver();
@@ -34,7 +33,7 @@ public class HomePageTest extends Base {
 		assertTrue(checkMenus);
 	}
 
-	@When("^user mouse hover on \"([^\"]*)\"$") 
+	@When("^user mouse hover on \"([^\"]*)\"$")
 	public void user_mouse_hover_on(String menu) throws InterruptedException {
 		homepageobj.menumousehover(menu);
 
@@ -53,19 +52,16 @@ public class HomePageTest extends Base {
 		expList.add("Petite");
 		expList.add("Tall");
 		expList.add("Brands");
-		assertTrue(actList.size()==expList.size());
+		assertTrue(actList.size() == expList.size());
 	}
 
 	@After
 	public void tearDown(Scenario scenario) throws IOException {
-		if(scenario.isFailed())
-		{
-			scenario.embed(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES),"image/png");
+		if (scenario.isFailed()) {
+			scenario.embed(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES), "image/png");
 			scenario.write("scenario failed");
-		}
-		else
-		{
-			scenario.embed(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES),"image/png");
+		} else {
+			scenario.embed(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES), "image/png");
 			scenario.write("scenario passed");
 		}
 		driver.quit();
